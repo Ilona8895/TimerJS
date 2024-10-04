@@ -4,7 +4,7 @@ Timer class with timestamp storage
 
 ## Installation
 
-Clone repository https://github.com/Ilona8895/timerJS.git
+Clone github repository
 
 ```bash
 git clone https://github.com/Ilona8895/timerJS.git
