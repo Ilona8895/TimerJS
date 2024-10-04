@@ -1,28 +1,29 @@
 export default class Timer {
-  constructor() {
+  constructor(start = "Start", reset = "Reset", timeText = "---") {
     this.startButton = document.createElement("button");
     this.resetButton = document.createElement("button");
-    this.showTimerElement = document.createElement("span");
+    this.timeStartText = document.createElement("span");
 
-    this.startButton.textContent = "Start";
+    this.startButton.textContent = start;
     this.startButton.classList.add("timerJS-start");
 
-    this.resetButton.textContent = "Reset";
+    this.resetButton.textContent = reset;
     this.resetButton.classList.add("timerJS-reset");
 
-    this.showTimerElement.textContent = "---";
-    this.showTimerElement.classList.add("timerJS-time");
+    this.timeStartText.textContent = timeText;
+    this.timeStartText.classList.add("timerJS-time");
 
-    this.launchTimer();
+    this.timestampArray = [];
+    this.#launchTimer();
   }
 
   addTimer(htmlElement) {
     htmlElement.appendChild(this.startButton);
     htmlElement.appendChild(this.resetButton);
-    htmlElement.appendChild(this.showTimerElement);
+    htmlElement.appendChild(this.timeStartText);
   }
 
-  launchTimer() {
+  #launchTimer() {
     let counterSec = 0;
     let counterMilisec = 0;
 
@@ -42,21 +43,23 @@ export default class Timer {
       if (e.target.classList.contains("active")) {
         e.target.classList.remove("active");
         e.target.textContent = "Start";
+        this.timestampArray.push(this.timeStartText.textContent);
         clearInterval(timer);
       } else {
         e.target.classList.add("active");
         e.target.textContent = "Stop";
 
-        timer = setInterval(startTimer, 10, this.showTimerElement);
+        timer = setInterval(startTimer, 10, this.timeStartText);
       }
     });
 
     this.resetButton.addEventListener("click", (e) => {
-      this.showTimerElement.textContent = "---";
+      this.timeStartText.textContent = "---";
       this.startButton.classList.remove("active");
       clearInterval(timer);
       counterSec = 0;
       counterMilisec = 0;
+      this.timestampArray.length = 0;
     });
   }
 }
