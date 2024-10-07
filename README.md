@@ -22,3 +22,6 @@ timerTest.addTimer(divTimer);
 
 
 ```
+
+## Working exaple
+[Github pages](https://ilona8895.github.io/timerJS/)
