@@ -44,6 +44,8 @@
 }
 
 .timerJS-time {
+  display: inline-block;
+  width: 10vw;
   padding: 10px;
   font-family: "Courier New", Courier, monospace;
   font-weight: bold;
