@@ -15,4 +15,4 @@ timer.addTimer(divTimer);
 
 ## Simple example
 
-[Github pages](https://ilona8895.github.io/timerJS/)
+[Github pages](https://ilona8895.github.io/TimerJS/)
