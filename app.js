@@ -1,9 +1,9 @@
-import Timer from "./Timer/Timer.js";
+import { Timer, TimerMinutes } from "./Timer/Timer.js";
 
-//create new timer object and insert it in html element
-const timerTest = new Timer();
+// create new timer object and insert it in html element
+const timer = new Timer();
 const divTimer = document.querySelector(".timer");
-timerTest.addTimer(divTimer);
+timer.addTimer(divTimer);
 
 const timestampList = document.querySelector(".timestamps > ul");
 const start = document.querySelector(".timerJS-start");
@@ -12,7 +12,7 @@ let timeSArr;
 
 start.addEventListener("click", (e) => {
   if (e.target.textContent === "Start") {
-    timeSArr = timerTest.timestampArray;
+    timeSArr = timer.timestampArray;
     const timestamp = document.createElement("li");
     timestampList.appendChild(timestamp);
     timestamp.textContent = timeSArr[timeSArr.length - 1];
@@ -25,3 +25,11 @@ reset.addEventListener("click", (e) => {
     el.remove();
   });
 });
+
+const timertMin = new TimerMinutes();
+const divTimerMin = document.querySelector(".timerMin");
+timertMin.addTimer(divTimerMin);
+
+const timerMinSetFrom = new TimerMinutes("5:00");
+const divtimerMinSetFrom = document.querySelector(".timerMinSetFrom");
+timerMinSetFrom.addTimer(divtimerMinSetFrom);
